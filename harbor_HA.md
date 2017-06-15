@@ -345,6 +345,7 @@
      
      这里需要注意如果使用  
      vim common/templates/ui/env 在最后一行添加
+     _REDIS_URL=reids_ip:port,100,redis_password,0
      _REDIS_URL=10.0.0.10:6379,100,Ar9as445p4vZ,0
      
      vi harbor.cfg
