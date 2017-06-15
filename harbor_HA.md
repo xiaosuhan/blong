@@ -302,6 +302,7 @@
      mysql -uharbor -h 10.0.0.250 -p 
      source ./registry.dump;
      
+     
 ##### 3.4 配置外接数据库 
 
      cp docker-compose.yml docker-compose.yml.bak       
@@ -324,11 +325,6 @@
 >       options:  
 >         syslog-address: "tcp://127.0.0.1:1514"
 >         tag: "mysql"
-
->       - 8090:80
-
->       - 80:80
-
 >       - mysql
 
 ##### 3.5  修改harbor 引入的环境变量
@@ -347,20 +343,37 @@
      vim common/templates/ui/env 在最后一行添加
      _REDIS_URL=reids_ip:port,100,redis_password,0
      _REDIS_URL=10.0.0.10:6379,100,Ar9as445p4vZ,0
-     
-     vi harbor.cfg
-     hostname =  harbor.devops-china.cn
-     db_password = Gj4EDGQ6J7rj
-     
-      ./prepare
-      ./install.sh
+   
+##### 3.7 修改配置harbor.cfg       
       
-      访问ip:8090
       配置LDAP，新版本的1.1.1 在配置的时候需要不增加用户的情况下配置LDAP，如果重启的话也需要去数据库里面删除用户，然后才可以配置测试LDAP 
+      编辑harbor.cfg 主配置文件
+      vim harbor.cfg 
+      hostname = 域名
+      ui_url_protocol = http
+      db_password = 数据库密码
       
+      ssl_cert = /harbor/data/cert/server.crt   # 放在共享存储上
+      ssl_cert_key = /harbor/data/cert/server.key    # 放在共享存储上
+      
+      secretkey_path = /harbor/data   # 放在共享存储上
+      
+      harbor_admin_password = Harbor12345    # harbor 登录密码设置
+      
+      #auth_mode = db_auth
+      auth_mode = ldap_auth
+      这里需要注意的是，第一次启动的可以选择db 认证，在web 界面修改为LDAP之后，也同时也需要在配置文件中修改LDAP  
+      ./prepare 
+      ./install.sh  
+       harbor 默认只支持一种认证，所以配置LDAP 之后，需要在配置文件也修改为LDAP认证。  
+           
 ##### 3.7 节点加入LB  
 
-       配置LB 使用keeplived 或者云平台的LB选择ip hash 解析，否则docker login 的时候会报认证的错误   
+      配置LB 使用keeplived 或者云平台的LB选择ip hash 解析，否则docker login 的时候会报认证的错误   
+      
+      
+      如果harbor各个节点上harbor.cfg 中的hostname= 配置为ip加端口，那么harbor 页面会显示镜像的名称为ip:port ，但是前面push  pull 仍然可以使用域名可以正常使用。 
+      
        
        
              
