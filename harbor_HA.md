@@ -366,7 +366,7 @@
       ./prepare 
       ./install.sh  
        harbor 默认只支持一种认证，所以配置LDAP 之后，需要在配置文件也修改为LDAP认证。  
-           
+      备注：在web界面修改的密码以及配置的邮件同时也需要添加到harbor.cfg 中去     
 ##### 3.7 节点加入LB  
 
       配置LB 使用keeplived 或者云平台的LB选择ip hash 解析，否则docker login 的时候会报认证的错误   
