@@ -367,14 +367,21 @@
       ./install.sh  
        harbor 默认只支持一种认证，所以配置LDAP 之后，需要在配置文件也修改为LDAP认证。  
       备注：在web界面修改的密码以及配置的邮件同时也需要添加到harbor.cfg 中去     
-##### 3.7 节点加入LB  
+##### 3.8 节点加入LB  
 
       配置LB 使用keeplived 或者云平台的LB选择ip hash 解析，否则docker login 的时候会报认证的错误   
       
       
       如果harbor各个节点上harbor.cfg 中的hostname= 配置为ip加端口，那么harbor 页面会显示镜像的名称为ip:port ，但是前面push  pull 仍然可以使用域名可以正常使用。 
-      
-       
+ 
+##### 3.9 增加节点  
+     
+     1. 在harbor 上创建一个仓库，可以设置为私有或者公开，把harbor 所需要的镜像上传到harbor中，然后修改docker-compose.yml 中的镜像地址为镜像仓库的地址。 
+     
+     2. 直接把其他节点的/opt/harbor 这个目录打包为harbor.tar.gz 直接copy 到其他节点上，然后解压直接运行 ./prepare   ./install.sh  运行之后使用ip 访问，确认没有问题直接直接加入到LB中  
+
+     
+             
        
              
       
