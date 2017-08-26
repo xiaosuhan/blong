@@ -1,0 +1,17 @@
+> create database postfix;
+> grant all privileges on postfix.* to postfix@localhost identified by 'SvfMgESY4eDBEPd9';
+> flush privileges;
+> exit
+
+
+
+
+ 系统用户 2rjnroA97sJzCLGp  
+
+
+groupadd vmail -g  1000
+
+useradd vmail -r -g 1000 -u 1000 -d /home/data/mail -m -c "mail user" -s /sbin/nologin
+
+
+
