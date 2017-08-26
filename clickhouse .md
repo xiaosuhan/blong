@@ -1,4 +1,7 @@
-## clickhouse    [https://clickhouse.yandex/tutorial.html]()  快速搭建集群参考    [https://clickhouse.yandex/reference_en.html ]() 官网文档   [https://habrahabr.ru/company/smi2/blog/317682/]() 关于集群配置参考   ### Clickhouse  基本介绍    Clickhouse 是属于OLAP(联机分析处理)开源的列存储数据管理系统。####  特点：     可以线性扩展     简单，方便      高度可靠的      容错(支持多主机异步复制，可以跨多个数据中心部署，单个节点或整个数据中心的停机时间不会影响系统的读写可用性)#### 功能及应用介绍
+## clickhouse    [https://clickhouse.yandex/tutorial.html]()  快速搭建集群参考 
+      [https://clickhouse.yandex/reference_en.html ]() 官网文档
+      [https://habrahabr.ru/company/smi2/blog/317682/]() 关于集群配置参考  
+    ### Clickhouse  基本介绍    Clickhouse 是属于OLAP(联机分析处理)开源的列存储数据管理系统。####  特点：     可以线性扩展     简单，方便      高度可靠的      容错(支持多主机异步复制，可以跨多个数据中心部署，单个节点或整个数据中心的停机时间不会影响系统的读写可用性)#### 功能及应用介绍
 
 | 功能           |      应用       |
 |:------------- |:---------------:|
