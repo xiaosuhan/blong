@@ -1,4 +1,16 @@
 ## elasticsearch 集群部署
+
+### 环境要求
+     JDK 1.8.0以上
+   [curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.4.3.tar.gz
+]()
+           
+
+
+
+
+
+
 ### 模块 
 
   参考 [https://www.elastic.co/guide/en/elasticsearch/reference/5.4/modules-node.html]()
