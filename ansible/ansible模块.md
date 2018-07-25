@@ -1,4 +1,4 @@
-## ansible 
+## ansible模块认识
 
 ### 1. centos 上安装ansible  
     yum install epel-release  -y
