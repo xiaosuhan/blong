@@ -124,7 +124,59 @@
      cd ..
      rm -rf fonts
     
+    选择字体 
+   ![](image/iterm2-选择字体.png)
+    
+    设置字体
+    
+   ![](image/iterm2-设置字体.png)
+    
+    
+    安装awesome 字体
+  [(https://github.com/gabrielelana/awesome-terminal-fonts/wiki/OS-X]()
+    
+    
+    
    
-         
+    vim ~/.zshrc 
+    
+    追加在后面
+    POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+    POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+
+    POWERLEVEL9K_MODE='awesome-fontconfig'
+    POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status)
+
+    POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+    POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+    POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+    POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+    POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white" 
+    	
+	
+	
+    POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
+    local user_symbol="$"
+    if [[ $(print -P "%#") =~ "#" ]]; then
+    user_symbol = "#"
+    fi
+    POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
+     
+     
+    效果如下
+   ![](image/效果.png)
+   
+    但是每次登陆需要source ~/.zshrc
   
-  
+    具体参数参考
+   [https://github.com/bhilburn/powerlevel9k]()
+   
+   [https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt]()
+   
+   [https://github.com/bhilburn/powerlevel9k/wiki/Troubleshooting]()
+   
+   
+   
+   
