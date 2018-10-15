@@ -149,12 +149,7 @@
    
     需要把nginx.xingxingwang.io 域名解析到对应node 的外网ip上就可以访问了
     
-### 部署heapster  
-     
-    wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/grafana.yaml
-	wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
-	wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
-	wget https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml
+
    
    
    

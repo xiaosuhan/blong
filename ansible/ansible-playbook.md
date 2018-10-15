@@ -38,6 +38,7 @@
     
     
     例子：
+    ---
     - hosts: all 
       remote_user: root 
       tasks:
@@ -47,11 +48,22 @@
       - name: start nginx service 
         service: name=nginx   state=started 
     忽略错误ignore_errors:  yes
-      
+    
+    playbook的语法具有如下特性
+    1. 需要以"---"(3个减号)开始，且需顶行首写
+    2. 次行开始正常些ploybook的内容
+    3. 使用#号注释代码
+    4. 缩进必须是统一的，不能将空格和tab混用
+    5. 缩进的级别必须一致，同样的缩进代表同样的级别，程序判别配置的级别是通过缩进结合换行来实现的
+    6. YAML文件内容和linux系统大小写判断方式保持一致，是区别大小写的，k/v 值均需大小写敏感
+    7. k/v 值可同行写也可换行写.同行使用“:” 分割，换行写需要以“-” 分割，
+    8. 一个完整的代码块功能需要最少元素，需包括name:task
+    9. 一个name只能包括一个task 
        
  	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 ### 变量
     ansible-playbook -e pkgname=httpd  op.yaml
+    ---
     - hosts: all 
       remote_user: root 
       tasks: 
@@ -72,6 +84,12 @@
          tags: install {{pkgname}}
         -name: start {{pkgname}}
          service: name={{ pkgname }}  state=started  enabled=true 
+ 
+### ansible-playbook 其他选项技巧
+      --inventory=PATH(-i PATH): 指定inventory 文件，默认文件在/etc/ansible/hosts
+      --verbose(-v): 显示详细输出
+      --forks=num(-f num): 指定并发执行的任务数，默认为5 
+      --check (-c) playbook 检测，
     
 ### 实战
      shell 脚本与playbook的转换
@@ -85,10 +103,9 @@
      ansible-playbook ansible-nginx.yaml --list-host    
      --list-host 
               
-         
-         
-         
-         
+### playbook 拓展
+    
+    
          
          
          
